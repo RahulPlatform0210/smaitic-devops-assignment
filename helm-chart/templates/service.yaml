@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: smaitic-api-service
+
+spec:
+  selector:
+    app: smaitic-api
+
+  ports:
+    - name: api-web
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.port }}
+      protocol: TCP
+
+  type: {{ .Values.service.type }}
